@@ -83,6 +83,14 @@ class LinkedList:
         
         current.next = None
         self.n -= 1
+
+    def delete_by_value(self, value):
+        current = self.head
+
+        while current.next:
+            if current.next.data == value:
+                current.next = None
+            current = current.next
         
 
 L = LinkedList()
@@ -95,10 +103,5 @@ L.append(4)
 print(L)
 L.insert_after(3, 45)
 print(L)
-L.delete_from_tail_pop()
-L.delete_from_tail_pop()
-L.delete_from_tail_pop()
-L.delete_from_tail_pop()
-L.delete_from_tail_pop()
-L.delete_from_tail_pop()
+L.delete_by_value(45)
 print(L)
