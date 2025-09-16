@@ -105,6 +105,57 @@ class LinkedList:
         else:
             current.next = current.next.next
 
+    def search(self, target):
+        pos = 0
+        current = self.head
+
+        while current:
+            if current.data == target:
+                return print("located in index: ",pos)
+            pos +=1
+            current = current.next
+
+    def search_by_index(self, targetIndex):
+        current = self.head
+        pos = 0
+        while current:
+            if pos == targetIndex:
+                return print(f"at index {targetIndex}, value is :", current.data)
+            current = current.next
+            pos += 1
+    def max_in_LL(self):
+        max = self.head
+        current = self.head.next
+
+        while current:
+            if current.data > max.data:
+                max.data = current.data
+            current = current.next
+        print("Max value: ", max.data)
+    def min_in_LL(self):
+        min = self.head
+        current = self.head.next
+
+        while current:
+            if current.data < min.data:
+                min.data = current.data
+            current = current.next
+        print("Min value: ", min.data)
+    def replace_max_value(self, value):
+        max = self.head
+        current = self.head.next
+
+        while current:
+            if current.data > max.data:
+                max.data = current.data
+            current = current.next
+        
+        max.data = value
+        print("current LinkedList", self)
+        print("Max value", max.data)
+
+
+
 L = LinkedList()
 
 L.append(1)
@@ -115,7 +166,8 @@ L.append(4)
 print(L)
 L.insert_after(3, 45)
 print(L)
-L.delete_by_value(1)
-L.clear()
-L.delete_by_value(2)
+L.search_by_index(3)
 print(L)
+L.max_in_LL()
+L.min_in_LL()
+L.replace_max_value(9)
