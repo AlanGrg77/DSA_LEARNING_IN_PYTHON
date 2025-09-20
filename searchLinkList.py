@@ -124,6 +124,8 @@ class LinkedList:
             current = current.next
             pos += 1
     def max_in_LL(self):
+        if self.head == None:
+            return print("Empty LL")
         max = self.head
         current = self.head.next
 
@@ -133,6 +135,8 @@ class LinkedList:
             current = current.next
         print("Max value: ", max.data)
     def min_in_LL(self):
+        if self.head == None:
+            return print("Empty LL")
         min = self.head
         current = self.head.next
 
@@ -142,6 +146,8 @@ class LinkedList:
             current = current.next
         print("Min value: ", min.data)
     def replace_max_value(self, value):
+        if self.head == None:
+            return print("Empty LL")
         max = self.head
         current = self.head.next
 

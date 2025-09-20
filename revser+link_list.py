@@ -31,10 +31,8 @@ class LinkedList:
             result = result + str(current.data) + "->"
             current = current.next
         return result[:-2]
-
-
-def reverse(head):
-        prev, current = None, head
+    def reverse(self):
+        prev, current = None, self.head
 
         while current:
             next_node = current.next #need to do this so that we can keep track of next|_nodes without losing it
@@ -43,7 +41,10 @@ def reverse(head):
             #Shifting the pre,current and next by 1 step
             prev = current
             current = next_node
-        return prev
+        self.head = prev
+        return self.head
+
+
 
 L = LinkedList()
 L.append(1)
@@ -53,6 +54,6 @@ L.append(4)
 print(L)
 
 
-L.head = reverse(L.head)
+L.reverse()
 print(L)
 
