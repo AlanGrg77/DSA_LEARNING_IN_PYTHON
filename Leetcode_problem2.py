@@ -48,7 +48,7 @@ class Solution:
             digit = sum_val % 10 # digigt is the value that we store in node and if 15 sum then digit is 5 here
 
             current.next = ListNode(digit) # now the actual node that are added are our result
-            current = current.next
+            current = current.next #move to next node but oder matter, add node irst and only then moving current tot current.next
 
             if l1 : l1 = l1.next # if l1 exits then move to next index
             if l2 : l2 = l2.next # if l2 exits then move to next index
