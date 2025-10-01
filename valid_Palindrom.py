@@ -6,7 +6,7 @@ class Solution:
         while l < r:
             while l < r and not self.alphaNumeric(s[l]):
                 l += 1
-            while r > l and not self.alphaNumeric(s[r]):
+            while l < r and not self.alphaNumeric(s[r]):
                 r -= 1
             if s[l].lower() != s[r].lower():
                 return False
