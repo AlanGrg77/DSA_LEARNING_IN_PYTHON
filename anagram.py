@@ -18,4 +18,4 @@ class Solution:
                 tHash[t[i]] = 1
             # sHash[s[i]] = 1 + sHash.get(s[i], 0)
             # tHash[t[i]] = 1 + tHash.get(t[i], 0)
-        return sHash == tHash
+        return sHash == tHash #oder of insertion doesn't matter in hash map
