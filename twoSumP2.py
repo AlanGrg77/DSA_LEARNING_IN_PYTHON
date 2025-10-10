@@ -5,7 +5,7 @@ def two_sum(nums, target):
         y = target - num
 
         if y in seen:
-            return [seen[i], i]
+            return [seen[y], i]
         
         seen[num] = i
 

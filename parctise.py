@@ -82,12 +82,68 @@ def contain_duplicate(array):
         
         seen.add(array[i])  
     return False 
-print(contain_duplicate([1,2,3,4,5,6])) 
 
 
-    
+def valid_palindrom(strs):
+    l, r = 0, len(strs) - 1
+    while l < r:
+        while l < r and not alphanumeric(strs[l]):
+            l += 1
+        while l < r and not alphanumeric(strs[r]):
+            r -= 1
+        if strs[l].lower() != strs[r].lower():
+            return False
+        l, r = l + 1, r - 1 
+    return True
 
-print(maxArea([1,7,3,5,4,7,3,6]))
-print(trap_watter([0,2,0,3,1,0,1,3,2,1]))
-print(group_anagram(["act","pots","tops","cat","stop","hat"]))
-print(threeSum([-1,0,1,2,-1,-4]))
+
+def alphanumeric(c):
+    return (("a" <= c <= "z") or ("A" <= c <= "Z") or ("0" <= c <= "9"))
+
+def anagram(s1, s2):
+    if len(s1) != len(s2):
+        return False
+    s1Hash = {}
+    s2Hash = {}
+    for i in range(len(s1)):
+        if s1[i] in s1Hash:
+            s1Hash[s1[i]] += 1
+        else:
+            s1Hash[s1[i]] = 1
+        if s2[i] in s2Hash:
+            s2Hash[s2[i]] += 1
+        else:
+            s2Hash[s2[i]] = 1
+    return s1Hash == s2Hash
+
+def twoSum(nums, target):
+    seen = {}
+    for i in range(len(nums)):
+        y = target - nums[i]
+        if y in seen:
+            return [seen[y], i]
+        seen[nums[i]] = i
+def twoSum2(nums,target):
+    l, r = 0, len(nums) - 1
+    while l < r:
+        sum = nums[l] + nums[r]
+        if sum == target:
+            return [l+1,r+1]
+        if sum < target:
+            l += 1
+        else:
+            r -= 1
+    return -1
+
+print(twoSum([2, 7, 11, 15], 9))
+print(twoSum2([2, 7, 11, 15], 9))
+
+
+# print(anagram("eat","atr"))
+# print(valid_palindrom("aba"))    
+# print(contain_duplicate([1,2,3,4,5,6])) 
+
+# print(maxArea([1,7,3,5,4,7,3,6]))
+# print(trap_watter([0,2,0,3,1,0,1,3,2,1]))
+# print(group_anagram(["act","pots","tops","cat","stop","hat"]))
+# print(threeSum([-1,0,1,2,-1,-4]))
